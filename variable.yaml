@@ -1,0 +1,11 @@
+---
+ - name: Understanding the variable concept
+   hosts: all
+   become: true
+   tasks:
+    - name: Installing the package with the help of a variable
+      yum:
+        name: "{{ a }}"
+        state: installed 
+
+        
