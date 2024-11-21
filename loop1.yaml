@@ -1,0 +1,16 @@
+---
+- name: Understanding the loops
+  hosts: all
+  become: true
+  vars:
+    abc:
+      - git
+      - docker
+      - httpd
+      - tree
+  tasks:
+    - name: Installing the packages with the loops
+      yum:
+        name: "{{ item }}"
+        state: installed
+      loop: "{{ abc }}"
