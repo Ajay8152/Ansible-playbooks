@@ -1,0 +1,13 @@
+---
+ - name: understanding the variables concept
+   hosts: all
+   become: true
+   vars:
+    a: git
+    b: docker
+    c: httpd
+   tasks:
+    - name: installing the packages with the help of variable
+      yum:
+        name: "{{ a }},{{ b }},{{ c }}"
+        state: installed
