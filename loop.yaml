@@ -1,0 +1,14 @@
+---
+ - name: loop
+   hosts: all
+   become: true
+   vars:
+    fruits:
+      - apple
+      - mango
+      - strawberry
+   tasks: 
+    - name: Display fruits
+      debug:
+        msg: "i like {{ item }}"
+      loop: "{{ fruits }}"
