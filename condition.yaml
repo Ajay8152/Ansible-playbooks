@@ -1,0 +1,17 @@
+---
+ - name: installing git based on the operating system
+   become: true
+   hosts: all
+   tasks:
+  
+    - name: installing git on the RedHat
+      yum:
+        name: git
+        state: present
+      when: ansible_os_family == 'RedHat'
+    
+    - name: installing git on the ubuntu
+      apt:
+        name: git
+        state: present
+      when: ansible_os_family == 'Debian'
